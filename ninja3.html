@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Ninja Business</h1>
+        <script>
+            class Ninja{
+                constructor(name){
+                    this.name = name;
+                    this.health = 100;
+                    this.strength = 3;
+                    this.speed = 3;
+                }
+                get sayName(){
+                    return('Ninja name: ' + this.name);
+                }
+                get showStats(){
+                    return('Ninja: ' + this.name + ` Strength: ${this.strength}` + ' Speed: ' + this.speed + ' Health: ' + this.health)
+                }
+                drinkSake(){
+                    this.health += 10;
+                }
+            }
+            class Sensei extends Ninja{
+                constructor(name){
+                    super(name);
+                    this.health = 200;
+                    this.strength = 10;
+                    this.speed = 10;
+                    this.wisdom = 10;
+                }
+                speakWisdom(){
+                    super.drinkSake();
+                    console.log('What one programmer can do in one month, two programmers can do in two months.');
+                }
+            }
+            let ninja1 = new Ninja('Clarence');
+            console.log(ninja1.sayName);
+            console.log(ninja1.showStats);
+            ninja1.drinkSake();
+            console.log(ninja1.showStats);
+            let super_sensei = new Sensei("BaldMike");
+            super_sensei.speakWisdom();
+            console.log(super_sensei.showStats);
+        </script>
+    </body>
+</html>
